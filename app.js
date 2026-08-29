@@ -4,8 +4,8 @@
 // 아래 두 값을 본인 프로젝트의 값으로 바꿔 주세요.
 // (anon key는 공개되어도 괜찮도록 설계된 키입니다)
 // ============================================================
-const SUPABASE_URL = "여기에_SUPABASE_URL_붙여넣기";
-const SUPABASE_ANON_KEY = "여기에_SUPABASE_ANON_KEY_붙여넣기";
+const SUPABASE_URL = "https://aawjtrfezuioggawaxnk.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_-I1ljYnuNYupO4ZXf1SIPQ_Lajl7wEC";
 
 const isConfigured =
   SUPABASE_URL.startsWith("https://") && SUPABASE_ANON_KEY.length > 20;
