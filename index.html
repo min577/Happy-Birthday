@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>정대현 교수님, 생신 축하드려요 🎂</title>
+  <meta name="description" content="정대현 교수님의 생신을 축하하는 마음을 담은 방명록입니다." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Gowun+Dodum&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="floating-decor" aria-hidden="true">
+    <span class="balloon b1">🎈</span>
+    <span class="balloon b2">🎈</span>
+    <span class="balloon b3">🎈</span>
+    <span class="balloon b4">🎀</span>
+    <span class="balloon b5">✨</span>
+    <span class="balloon b6">🎈</span>
+  </div>
+
+  <header class="hero">
+    <p class="hero-sub">🎉 Happy Birthday 🎉</p>
+    <h1 class="hero-title">정대현 교수님,<br />생신 진심으로 축하드려요!</h1>
+    <p class="hero-desc">
+      교수님께 전하고 싶은 축하의 마음을<br class="mobile-br" />
+      아래 방명록에 남겨 주세요 💌
+    </p>
+    <div class="hero-cake" aria-hidden="true">🎂</div>
+  </header>
+
+  <main class="container">
+    <section class="write-card" aria-label="축하 메시지 작성">
+      <h2 class="section-title">✏️ 축하 메시지 남기기</h2>
+      <form id="message-form">
+        <div class="field">
+          <label for="name-input">이름</label>
+          <input
+            id="name-input"
+            type="text"
+            placeholder="이름을 적어 주세요"
+            maxlength="20"
+            required
+            autocomplete="name"
+          />
+        </div>
+        <div class="field">
+          <label for="message-input">축하 메시지</label>
+          <textarea
+            id="message-input"
+            placeholder="교수님께 전하고 싶은 따뜻한 한마디를 남겨 주세요 :)"
+            maxlength="500"
+            rows="4"
+            required
+          ></textarea>
+          <div class="char-count"><span id="char-current">0</span>/500</div>
+        </div>
+        <button type="submit" id="submit-btn">
+          <span class="btn-text">마음 전하기 💝</span>
+        </button>
+      </form>
+      <p id="form-status" class="form-status" role="status"></p>
+    </section>
+
+    <section class="messages-section" aria-label="축하 메시지 목록">
+      <h2 class="section-title">
+        💌 도착한 축하 메시지
+        <span id="message-count" class="count-badge"></span>
+      </h2>
+      <div id="messages-list" class="messages-grid">
+        <p class="loading-text" id="loading-text">메시지를 불러오는 중이에요...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>정대현 교수님의 생신을 축하하며, 마음을 모아 만들었습니다 🍀</p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

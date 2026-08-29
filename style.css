@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #fff8f0;
+  --cream: #fffdf9;
+  --peach: #ffd9c0;
+  --pink: #ffc2d1;
+  --pink-deep: #f78fa7;
+  --brown: #6b4f3f;
+  --brown-soft: #9c8271;
+  --yellow: #ffe8a3;
+  --mint: #cdeccc;
+  --lavender: #e2d5f8;
+  --sky: #cfe7f5;
+  --shadow: 0 6px 18px rgba(155, 110, 80, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Gowun Dodum", sans-serif;
+  background: var(--bg);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(255, 194, 209, 0.18) 0, transparent 25%),
+    radial-gradient(circle at 85% 10%, rgba(255, 232, 163, 0.25) 0, transparent 30%),
+    radial-gradient(circle at 70% 80%, rgba(205, 236, 204, 0.2) 0, transparent 30%);
+  color: var(--brown);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- floating decorations ---------- */
+.floating-decor {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.balloon {
+  position: absolute;
+  font-size: 1.6rem;
+  opacity: 0.5;
+  animation: float 9s ease-in-out infinite;
+}
+
+.b1 { left: 5%; top: 18%; animation-delay: 0s; }
+.b2 { left: 90%; top: 30%; animation-delay: -2s; font-size: 1.2rem; }
+.b3 { left: 12%; top: 70%; animation-delay: -4s; font-size: 1.3rem; }
+.b4 { left: 85%; top: 75%; animation-delay: -1s; }
+.b5 { left: 50%; top: 12%; animation-delay: -5s; font-size: 1.1rem; }
+.b6 { left: 70%; top: 55%; animation-delay: -3s; font-size: 1rem; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-22px) rotate(5deg); }
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 4.5rem 1.25rem 3rem;
+  z-index: 1;
+}
+
+.hero-sub {
+  font-family: "Gaegu", cursive;
+  font-size: 1.5rem;
+  color: var(--pink-deep);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.75rem;
+}
+
+.hero-title {
+  font-family: "Gaegu", cursive;
+  font-size: clamp(2.1rem, 6vw, 3.4rem);
+  line-height: 1.25;
+  margin-bottom: 1.25rem;
+}
+
+.hero-desc {
+  font-size: 1.05rem;
+  color: var(--brown-soft);
+  line-height: 1.7;
+}
+
+.hero-cake {
+  font-size: 4rem;
+  margin-top: 1.5rem;
+  animation: bounce 2.4s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+}
+
+.mobile-br {
+  display: none;
+}
+
+/* ---------- layout ---------- */
+.container {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.25rem 3rem;
+  z-index: 1;
+}
+
+.section-title {
+  font-family: "Gaegu", cursive;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.count-badge {
+  font-size: 1rem;
+  background: var(--pink);
+  color: #fff;
+  border-radius: 999px;
+  padding: 0.1rem 0.7rem;
+  font-family: "Gowun Dodum", sans-serif;
+}
+
+.count-badge:empty {
+  display: none;
+}
+
+/* ---------- write card ---------- */
+.write-card {
+  background: var(--cream);
+  border: 2px dashed var(--peach);
+  border-radius: 24px;
+  padding: 1.75rem 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 3rem;
+}
+
+.field {
+  margin-bottom: 1.1rem;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  border: 2px solid #f2e3d5;
+  border-radius: 14px;
+  padding: 0.75rem 0.9rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--brown);
+  background: #fff;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--pink);
+  box-shadow: 0 0 0 4px rgba(255, 194, 209, 0.25);
+}
+
+.char-count {
+  text-align: right;
+  font-size: 0.8rem;
+  color: var(--brown-soft);
+  margin-top: 0.25rem;
+}
+
+#submit-btn {
+  width: 100%;
+  border: none;
+  border-radius: 16px;
+  padding: 0.9rem 1rem;
+  font-family: "Gaegu", cursive;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--pink-deep), #f7a072);
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+  box-shadow: 0 6px 14px rgba(247, 143, 167, 0.35);
+}
+
+#submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 18px rgba(247, 143, 167, 0.45);
+}
+
+#submit-btn:active {
+  transform: translateY(0);
+}
+
+#submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-status {
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.95rem;
+  min-height: 1.4em;
+}
+
+.form-status.success { color: #4c9a5f; }
+.form-status.error { color: #d9536f; }
+
+/* ---------- messages ---------- */
+.messages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.1rem;
+}
+
+.loading-text,
+.empty-text {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--brown-soft);
+  padding: 2rem 0;
+}
+
+.message-card {
+  border-radius: 4px 18px 18px 18px;
+  padding: 1.1rem 1.15rem 0.95rem;
+  box-shadow: 0 4px 12px rgba(155, 110, 80, 0.14);
+  transition: transform 0.2s;
+  animation: pop-in 0.35s ease both;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+}
+
+.message-card:nth-child(4n + 1) { background: #fff3e6; }
+.message-card:nth-child(4n + 2) { background: #ffeef3; }
+.message-card:nth-child(4n + 3) { background: #eef7ee; }
+.message-card:nth-child(4n + 0) { background: #f2edfb; }
+
+.message-card:nth-child(3n + 1) { transform: rotate(-0.6deg); }
+.message-card:nth-child(3n + 2) { transform: rotate(0.5deg); }
+
+@keyframes pop-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; }
+}
+
+.message-text {
+  font-size: 1rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-break: break-word;
+  flex: 1;
+}
+
+.message-meta {
+  margin-top: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.message-name {
+  font-family: "Gaegu", cursive;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--pink-deep);
+}
+
+.message-name::before {
+  content: "from. ";
+  font-size: 0.85rem;
+  color: var(--brown-soft);
+  font-weight: 400;
+}
+
+.message-date {
+  font-size: 0.75rem;
+  color: var(--brown-soft);
+  white-space: nowrap;
+}
+
+/* ---------- footer ---------- */
+.footer {
+  text-align: center;
+  padding: 2.5rem 1.25rem 3rem;
+  color: var(--brown-soft);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 540px) {
+  .hero {
+    padding-top: 3.25rem;
+  }
+
+  .mobile-br {
+    display: inline;
+  }
+
+  .messages-grid {
+    grid-template-columns: 1fr;
+  }
+}
