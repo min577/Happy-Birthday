@@ -315,6 +315,219 @@ body {
   z-index: 1;
 }
 
+/* ---------- 공개 범위 선택 ---------- */
+.field-label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.visibility-toggle {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.vis-option {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 2px solid #f2e3d5;
+  border-radius: 999px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.92rem;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.vis-option input {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  accent-color: var(--pink-deep);
+  cursor: pointer;
+}
+
+.vis-option:has(input:checked) {
+  border-color: var(--pink-deep);
+  background: #fff0f4;
+}
+
+/* ---------- 교수님만 보는 메시지 ---------- */
+.private-badge {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #8a6d9e;
+  background: var(--lavender);
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.message-card.private-card {
+  outline: 2px dashed #d9c6f2;
+  outline-offset: -6px;
+}
+
+/* ---------- 교수님 로그인 링크 ---------- */
+.professor-link {
+  display: inline-block;
+  margin-top: 1.1rem;
+  border: 1.5px solid #eadbcd;
+  background: #fff;
+  color: var(--brown-soft);
+  font-family: inherit;
+  font-size: 0.82rem;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.professor-link:hover {
+  border-color: var(--pink-deep);
+  color: var(--pink-deep);
+}
+
+/* ---------- 관리자 (숨김 링크) ---------- */
+.admin-link {
+  display: block;
+  margin: 1.4rem auto 0;
+  border: none;
+  background: none;
+  color: var(--brown-soft);
+  font-family: inherit;
+  font-size: 0.68rem;
+  opacity: 0.18;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.admin-link:hover,
+.admin-link:focus-visible {
+  opacity: 0.75;
+}
+
+body.admin-mode .admin-link {
+  opacity: 0.75;
+}
+
+.msg-delete {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  color: #d66;
+  font-size: 0.85rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(155, 110, 80, 0.2);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.msg-delete:hover {
+  transform: scale(1.12);
+  background: #ffe3e3;
+}
+
+body.admin-mode .message-card {
+  position: relative;
+}
+
+/* ---------- 로그인 모달 ---------- */
+.admin-modal[hidden] {
+  display: none;
+}
+
+.admin-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: rgba(80, 55, 40, 0.35);
+  backdrop-filter: blur(3px);
+}
+
+.admin-modal-box {
+  width: 100%;
+  max-width: 340px;
+  background: var(--cream);
+  border-radius: 20px;
+  padding: 1.5rem 1.4rem 1.3rem;
+  box-shadow: var(--shadow);
+}
+
+.admin-modal-box h3 {
+  font-family: "Gaegu", cursive;
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
+}
+
+.modal-desc {
+  font-size: 0.85rem;
+  color: var(--brown-soft);
+  margin-bottom: 0.9rem;
+}
+
+.admin-modal-box input {
+  width: 100%;
+  border: 2px solid #f2e3d5;
+  border-radius: 12px;
+  padding: 0.65rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--brown);
+  margin-bottom: 0.6rem;
+}
+
+.admin-modal-box input:focus {
+  outline: none;
+  border-color: var(--pink);
+}
+
+.admin-error {
+  min-height: 1.1rem;
+  font-size: 0.8rem;
+  color: #d66;
+  margin-bottom: 0.4rem;
+}
+
+.admin-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.admin-modal-actions button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.1rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.admin-modal-actions button[type="button"] {
+  background: #f0e6db;
+  color: var(--brown);
+}
+
+.admin-modal-actions button[type="submit"] {
+  background: var(--pink-deep);
+  color: #fff;
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 540px) {
   .hero {
